@@ -7,11 +7,13 @@
     }
   },
   "mounts": [
-    "source=super-fr-release-fixtures-20261024-fr-ops-1228-state,target=/var/lib/fr-ops-1228-state,type=volume"
+    "source=super-fr-release-fixtures-20261024-fr-ops-1228-state,target=/var/lib/fr-ops-1228-state,type=volume",
+    "source=${localEnv:HOME}/.local/state/fr/ops-trust,target=/run/fr-ops-trust,type=bind,readonly"
   ],
   "postCreateCommand": "sudo chown -R \"$(id -u):$(id -g)\" /var/lib/fr-ops-1228-state && uv tool install 'git+https://github.com/derio-net/super-fr@v6.0.0-rc.7#subdirectory=packages/fr'",
   "containerEnv": {
     "FR_PROFILE": "ops",
+    "FR_OPS_TRUST_DIR": "/run/fr-ops-trust",
     "FR_OPS_FIXTURE_STATE": "/var/lib/fr-ops-1228-state",
     "SSH_AUTH_SOCK": "",
     "KUBECONFIG": "",
