@@ -9,10 +9,11 @@ fresh checkout using the shared fixture-only state volume.
 
 ## Verification
 
-strategy: candidate
+strategy: none
 gate: developer
 gate: fixture-devops-live=devops
-- fixture-devops-live: live — requires the released fr in the real disposable
+- fixture-devops-live: live — only this operator-driven post-merge walk is owed;
+  it requires the released fr in the real disposable
   ops profile and a real disposable PR merge; candidate/fake-forge scenarios do
   not prove this.
 
