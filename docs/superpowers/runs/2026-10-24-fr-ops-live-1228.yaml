@@ -1,0 +1,31 @@
+schema_version: 10
+run: 2026-10-24-fr-ops-live-1228
+workflow: fr-goal@1
+branch: feat/fr-ops-live-1228
+started: '2026-10-24T12:11:41+00:00'
+cursor: journal-check
+steps:
+  brainstorm:
+    state: done
+    emitted:
+      spec: docs/superpowers/specs/2026-10-24-fr-ops-live-1228-design.md
+  spec-review:
+    state: done
+  plan:
+    state: done
+    emitted:
+      plan: docs/superpowers/plans/2026-10-24-fr-ops-live-1228
+  plan-review:
+    state: done
+  implement:
+    state: done
+    members:
+    - implement-phase
+    - review-phase
+    units:
+      phase/1:
+        state: manual
+  journal-check:
+    state: pending
+  deliver:
+    state: pending
