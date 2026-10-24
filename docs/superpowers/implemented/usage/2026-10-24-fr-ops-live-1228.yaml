@@ -4,38 +4,39 @@ captures:
 - host: h-4f92a930
   harness: opencode
   mode: host-worktree
-  captured_at: '2026-10-24T17:24:03+00:00'
+  captured_at: '2026-10-24T20:18:21+00:00'
   at:
   - deliver
+  - closeout
   sessions:
   - session: ses_e924815b6ffewFtox34ri7P2f1
     role: main
     models:
       gpt-6-luna-fast:
-        input: 773002
+        input: 1011388
         cache_write: 0
-        cache_read: 31900544
-        output: 149722
+        cache_read: 52532480
+        output: 229227
         usd: null
         usd_source: none
     activity:
       implementation:
         usd: null
-        turns: 64
+        turns: 100
       other:
         usd: null
-        turns: 140
+        turns: 245
       paperwork:
         usd: null
-        turns: 72
+        turns: 95
     steps:
       (outside run):
         usd: null
-        turns: 89
-        input: 277432
+        turns: 238
+        input: 513760
         cache_write: 0
-        cache_read: 13591424
-        output: 62355
+        cache_read: 34063360
+        output: 141677
       journal-check:
         usd: null
         turns: 102
@@ -46,19 +47,19 @@ captures:
       deliver:
         usd: null
         turns: 45
-        input: 76932
+        input: 78990
         cache_write: 0
-        cache_read: 5767040
-        output: 22932
+        cache_read: 5927040
+        output: 23115
     steps_by_role:
       main:
         (outside run):
           usd: null
-          turns: 89
-          input: 277432
+          turns: 238
+          input: 513760
           cache_write: 0
-          cache_read: 13591424
-          output: 62355
+          cache_read: 34063360
+          output: 141677
         journal-check:
           usd: null
           turns: 102
@@ -69,16 +70,16 @@ captures:
         deliver:
           usd: null
           turns: 45
-          input: 76932
+          input: 78990
           cache_write: 0
-          cache_read: 5767040
-          output: 22932
+          cache_read: 5927040
+          output: 23115
     units:
       step/deliver:
         orchestrator:
           usd: null
           turns: 45
-          input: 76932
+          input: 78990
           cache_write: 0
-          cache_read: 5767040
-          output: 22932
+          cache_read: 5927040
+          output: 23115
