@@ -1,0 +1,38 @@
+schema_version: 1
+ops:
+  - id: fixture-pre-merge
+    summary: Write a disposable local pre-merge marker
+    phase: pre-merge
+    identities: [fixture_identity]
+    check: >-
+      test "${FR_OPS_FIXTURE_IDENTITY:-}" = "fr-ops-1228-fixture-only" &&
+      test -f "$FR_OPS_FIXTURE_STATE/pre-merge" &&
+      grep -qx 'pre-merge-ok' "$FR_OPS_FIXTURE_STATE/pre-merge"
+    apply: >-
+      test "${FR_OPS_FIXTURE_IDENTITY:-}" = "fr-ops-1228-fixture-only" &&
+      mkdir -p "$FR_OPS_FIXTURE_STATE" &&
+      printf '%s\n' 'pre-merge-ok' > "$FR_OPS_FIXTURE_STATE/pre-merge"
+    mutating: true
+    side_effects:
+      - writes one disposable marker in the fixture-only Docker volume mounted at
+        /var/lib/fr-ops-1228-state
+    undo: "rm -f \"$FR_OPS_FIXTURE_STATE/pre-merge\""
+  - id: fixture-post-merge
+    summary: Write a disposable local post-merge marker after readiness
+    phase: post-merge
+    identities: [fixture_identity]
+    needs: [fixture-pre-merge]
+    ready: git show origin/HEAD:.fr-ops-fixture/merged-ready | grep -qx 'ready-after-merge'
+    check: >-
+      test "${FR_OPS_FIXTURE_IDENTITY:-}" = "fr-ops-1228-fixture-only" &&
+      test -f "$FR_OPS_FIXTURE_STATE/post-merge" &&
+      grep -qx 'post-merge-ok' "$FR_OPS_FIXTURE_STATE/post-merge"
+    apply: >-
+      test "${FR_OPS_FIXTURE_IDENTITY:-}" = "fr-ops-1228-fixture-only" &&
+      mkdir -p "$FR_OPS_FIXTURE_STATE" &&
+      printf '%s\n' 'post-merge-ok' > "$FR_OPS_FIXTURE_STATE/post-merge"
+    mutating: true
+    side_effects:
+      - writes one disposable marker in the fixture-only Docker volume mounted at
+        /var/lib/fr-ops-1228-state
+    undo: "rm -f \"$FR_OPS_FIXTURE_STATE/post-merge\""
