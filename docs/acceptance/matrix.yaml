@@ -33,3 +33,14 @@ schema_version: 5
 org: derio-net
 repo: super-fr-release-fixtures-20261024
 rows:
+  - id: fixture-devops-live
+    capability: DevOps stage
+    acceptance: An operator can carry one harmless pre-merge and one harmless post-merge
+      op through a real disposable PR merge and verify both from a fresh checkout.
+    origin:
+    - super-fr-release-fixtures-20261024:docs/superpowers/specs/2026-10-24-fr-ops-live-1228-design.md#R1
+    levels: {}
+    status: walk-owed
+    notes: Live walk is pending; candidate or fake-forge evidence is not real-merge
+      proof.
+    verify: live
