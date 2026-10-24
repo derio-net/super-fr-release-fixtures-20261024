@@ -1,0 +1,13 @@
+schema_version: 2
+profiles:
+  ops:
+    purpose: disposable fr-ops acceptance; local fixture state only
+    secrets: []
+    ops: true
+default: ops
+forge:
+  type: github
+ci:
+  type: github-actions
+tracking:
+  type: github

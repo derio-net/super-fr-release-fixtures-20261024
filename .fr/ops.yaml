@@ -1,0 +1,8 @@
+env_passthrough:
+  - FR_OPS_FIXTURE_STATE
+timeout_seconds: 10
+identities:
+  fixture_identity:
+    env:
+      FR_OPS_FIXTURE_IDENTITY:
+        from: "printf '%s' 'fr-ops-1228-fixture-only'"

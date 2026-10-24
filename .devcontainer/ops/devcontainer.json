@@ -1,0 +1,28 @@
+{
+  "name": "super-fr release fixture — ops",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {
+      "version": "0.5.0"
+    }
+  },
+  "mounts": [
+    "source=super-fr-release-fixtures-20261024-fr-ops-1228-state,target=/var/lib/fr-ops-1228-state,type=volume"
+  ],
+  "postCreateCommand": "sudo chown -R \"$(id -u):$(id -g)\" /var/lib/fr-ops-1228-state && uv tool install 'git+https://github.com/derio-net/super-fr@v6.0.0-rc.7#subdirectory=packages/fr'",
+  "containerEnv": {
+    "FR_PROFILE": "ops",
+    "FR_OPS_FIXTURE_STATE": "/var/lib/fr-ops-1228-state",
+    "SSH_AUTH_SOCK": "",
+    "KUBECONFIG": "",
+    "VAULT_ADDR": "",
+    "VAULT_TOKEN": "",
+    "VAULT_CONFIG": ""
+  },
+  "customizations": {
+    "fr": {
+      "profile": "ops",
+      "purpose": "disposable local-file ops acceptance only"
+    }
+  }
+}
