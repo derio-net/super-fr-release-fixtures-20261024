@@ -1,0 +1,32 @@
+schema_version: 2
+phase:
+  number: 1
+  title: Prepare the disposable fr-ops live-walk fixture
+  tag: manual
+  depends_on: []
+  tracking_issue: null
+  acceptance:
+  - fixture-devops-live
+  files:
+  - .fr/ops.yaml
+  - .devcontainer/fr-profiles.yaml
+  - .devcontainer/ops/devcontainer.json
+  - docs/superpowers/specs/2026-10-24-fr-ops-live-1228-design.md
+  - docs/superpowers/plans/2026-10-24-fr-ops-live-1228/ops.yaml
+tasks:
+- number: 1
+  title: Prepare and inspect the one-pre/one-post local ops contract
+  steps:
+  - id: P1.T1.S1
+    text: |-
+      Prepare only the disposable fixture profile, local identity, and the two local sentinel operations; no credentials or live service integration.
+state:
+  steps:
+    P1.T1.S1:
+      state: ' '
+      ticked_at: null
+      note: null
+  completion:
+    at: null
+    note: null
+    observed_prs: []
