@@ -14,11 +14,31 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0
 
       - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
 
       - name: Install pinned fr RC7
         run: uv tool install 'git+https://github.com/derio-net/super-fr@v6.0.0-rc.7#subdirectory=packages/fr'
 
+      - name: Validate ops profile trust boundary
+        run: python3 scripts/validate_ops_profile.py
+
       - name: Check acceptance matrix
+        if: ${{ hashFiles('docs/acceptance/matrix.yaml') != '' }}
         run: fr acceptance check
+
+      - name: Acceptance matrix not present (N/A for profile-only fixture)
+        if: ${{ hashFiles('docs/acceptance/matrix.yaml') == '' }}
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if ! git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
+            echo 'Error: PR base commit is unavailable; cannot establish matrix N/A.' >&2
+            exit 1
+          fi
+          if git cat-file -e "$BASE_SHA:docs/acceptance/matrix.yaml" 2>/dev/null; then
+            echo 'Error: this change removed docs/acceptance/matrix.yaml; N/A is not applicable.' >&2
+            exit 1
+          fi
+          echo 'N/A: neither PR head nor base has docs/acceptance/matrix.yaml; ops-profile validation ran separately.'
