@@ -27,6 +27,7 @@ state:
       ticked_at: null
       note: null
   completion:
-    at: null
-    note: null
+    at: '2026-10-24T12:11:08+00:00'
+    note: Fixture-only source plan, ops definition and profile were prepared on the
+      isolated local feature worktree; no runtime ops were performed.
     observed_prs: []
