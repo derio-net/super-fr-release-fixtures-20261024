@@ -32,4 +32,11 @@ steps:
     stdout: |
       1 out-of-scope finding(s): adoption-inference-not-review-evidence
   deliver:
-    state: pending
+    state: running
+    at: '2026-10-24T17:16:58+00:00'
+    units:
+      step/deliver:
+        attempts:
+        - dispatched: '2026-10-24T17:16:58+00:00'
+          harness: opencode
+          session: ses_e924815b6ffewFtox34ri7P2f1
