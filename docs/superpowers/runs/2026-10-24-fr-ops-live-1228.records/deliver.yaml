@@ -1,8 +1,0 @@
-schema_version: 10
-run: 2026-10-24-fr-ops-live-1228
-step: deliver
-outcome: done
-emitted:
-  pr: https://github.com/derio-net/super-fr-release-fixtures-20261024/pull/1
-evidence:
-  tests: ci

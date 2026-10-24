@@ -1,0 +1,84 @@
+schema_version: 2
+run: 2026-10-24-fr-ops-live-1228
+captures:
+- host: h-4f92a930
+  harness: opencode
+  mode: host-worktree
+  captured_at: '2026-10-24T17:24:03+00:00'
+  at:
+  - deliver
+  sessions:
+  - session: ses_e924815b6ffewFtox34ri7P2f1
+    role: main
+    models:
+      gpt-6-luna-fast:
+        input: 773002
+        cache_write: 0
+        cache_read: 31900544
+        output: 149722
+        usd: null
+        usd_source: none
+    activity:
+      implementation:
+        usd: null
+        turns: 64
+      other:
+        usd: null
+        turns: 140
+      paperwork:
+        usd: null
+        turns: 72
+    steps:
+      (outside run):
+        usd: null
+        turns: 89
+        input: 277432
+        cache_write: 0
+        cache_read: 13591424
+        output: 62355
+      journal-check:
+        usd: null
+        turns: 102
+        input: 418638
+        cache_write: 0
+        cache_read: 12542080
+        output: 64435
+      deliver:
+        usd: null
+        turns: 45
+        input: 76932
+        cache_write: 0
+        cache_read: 5767040
+        output: 22932
+    steps_by_role:
+      main:
+        (outside run):
+          usd: null
+          turns: 89
+          input: 277432
+          cache_write: 0
+          cache_read: 13591424
+          output: 62355
+        journal-check:
+          usd: null
+          turns: 102
+          input: 418638
+          cache_write: 0
+          cache_read: 12542080
+          output: 64435
+        deliver:
+          usd: null
+          turns: 45
+          input: 76932
+          cache_write: 0
+          cache_read: 5767040
+          output: 22932
+    units:
+      step/deliver:
+        orchestrator:
+          usd: null
+          turns: 45
+          input: 76932
+          cache_write: 0
+          cache_read: 5767040
+          output: 22932

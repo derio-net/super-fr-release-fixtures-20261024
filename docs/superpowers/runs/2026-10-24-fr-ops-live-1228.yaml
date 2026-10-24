@@ -32,11 +32,19 @@ steps:
     stdout: |
       1 out-of-scope finding(s): adoption-inference-not-review-evidence
   deliver:
-    state: running
-    at: '2026-10-24T17:16:58+00:00'
+    state: done
+    at: '2026-10-24T17:24:03+00:00'
+    emitted:
+      pr: https://github.com/derio-net/super-fr-release-fixtures-20261024/pull/1
     units:
       step/deliver:
         attempts:
         - dispatched: '2026-10-24T17:16:58+00:00'
           harness: opencode
           session: ses_e924815b6ffewFtox34ri7P2f1
+          returned: '2026-10-24T17:23:51+00:00'
+          outcome: done
+        evidence:
+          tests: ci:887782c859b4297db8454f09f6a3163b8a9511a4+2d670b54edf8bbf568d356dd4aa53050eb161b43;tree=88dc00d745fe443497b3769cb1b51222b299263d0c0f1f7c272fb1f2d84e8765
+          proportionality: 7f48425546d78ba467e6f1755dea6a6cd3504656:589163d0b4d04a6d742affd9b22b0dcf01b1da02210d03f24eb7082345c7bbd4
+          visual: none
